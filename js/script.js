@@ -5,7 +5,10 @@ var words = [
     "december",
     "christmas",
     "jinglebells",
-    "snow"
+    "snow",
+    "fireplace",
+    "presents",
+    "reindeer"
 ];
 
 var word = words[Math.floor(Math.random() * words.length)];
@@ -14,12 +17,12 @@ let answerArray = [];
     for (i = 0; i < word.length; i++) {
     answerArray[i] = "_";
 } 
- 
+
 let lives = 6;  
 let remainingLetters = word.length;
     while (remainingLetters > 0 && lives > 0) {
-    
-let userInput = prompt("Guess the word by entering a letter! \n" + (answerArray.join(" ") + ("\n") + lives + " lives left"));
+
+let userInput = prompt("Guess the word by entering a letter! \n" + (answerArray.join(" ") + ("\n You have ") + lives + " lives left"));
     if (userInput === null) {
         break;
     } else if (userInput.length !== 1) {
@@ -41,6 +44,3 @@ if (lives === 0) {
 } else if (remainingLetters <=0 ) {
     alert("You won! The answer was " + word);
 }
-
-
-
