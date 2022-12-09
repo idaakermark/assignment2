@@ -10,42 +10,37 @@ var words = [
 
 var word = words[Math.floor(Math.random() * words.length)];
 
-
-    // answer array
 let answerArray = [];
     for (i = 0; i < word.length; i++) {
     answerArray[i] = "_";
 } 
  
-let lives = 6;
-    
+let lives = 6;  
 let remainingLetters = word.length;
-    // game loop
-    while (remainingLetters > 0) {
+    while (remainingLetters > 0 && lives > 0) {
     
-
-    // guess from the player
 let userInput = prompt("Guess the word by entering a letter! \n" + (answerArray.join(" ") + ("\n") + lives + " lives left"));
     if (userInput === null) {
-    // Exit game loop
-    break;
+        break;
     } else if (userInput.length !== 1) {
         alert("Please enter a single letter.");
-    } else  if {
-    // Update game with the guess
+    } else {
         for (var j = 0; j < word.length; j++) {
             if (word[j] === userInput) {
             answerArray[j] = userInput;
             remainingLetters--; 
-            } else {
-                
-                }
-            }
-        } 
-    }
+            lives++;
+            }        
+        }
+    } 
+    lives--;
+}
+    
+if (lives === 0) {
+    alert("You loose! The correct answer was " + word);
+} else if (remainingLetters <=0 ) {
+    alert("You won! The answer was " + word);
+}
 
-    // end of game loop
-    }
 
-alert("You won! The answer was " + word);
 
